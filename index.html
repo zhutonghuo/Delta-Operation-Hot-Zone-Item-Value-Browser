@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三角洲行动 · 烽火地带物品价值浏览器</title>
+  <link rel="icon" href="https://deltaforce.com/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img class="brand-logo" src="https://deltaforce.com/favicon.ico" alt="logo"
+           onerror="this.style.display='none'">
+      <div class="brand-text">
+        <h1>三角洲行动 · 烽火地带</h1>
+        <p>物品价值浏览器</p>
+      </div>
+    </div>
+    <button id="themeToggle" class="theme-btn" title="切换深色 / 浅色" aria-label="切换主题">🌙</button>
+  </header>
+
+  <section class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input id="search" type="search" placeholder="搜索物品名称 / 分类…" autocomplete="off">
+    </div>
+
+    <div class="section-label">按品质筛选</div>
+    <div id="qualityFilters" class="chips"></div>
+
+    <div class="section-label">按携带建议筛选</div>
+    <div id="worthFilters" class="chips worth-chips"></div>
+
+    <div class="sort-wrap">
+      <label for="sort">排序</label>
+      <select id="sort">
+        <option value="value_desc">价值 高 → 低</option>
+        <option value="value_asc">价值 低 → 高</option>
+        <option value="ssv_desc">单格价值 高 → 低</option>
+        <option value="ssv_asc">单格价值 低 → 高</option>
+        <option value="name_asc">名称 A → Z</option>
+      </select>
+    </div>
+  </section>
+
+  <div class="stat-bar">
+    <span id="count">—</span> 件物品
+    <span id="activeFilters" class="active-filters"></span>
+  </div>
+
+  <main id="grid" class="grid"></main>
+  <div id="empty" class="empty" hidden>没有匹配的物品，试试放宽筛选条件。</div>
+
+  <footer class="footer">
+    数据来源：三角洲行动数据库 / 一图流（2026-10-25 采集）· 价值单位：哈夫币<br>
+    品质图标来自 bootstrap-icons（jsDelivr 公开 CDN，外部链接，未打包本地图片）<br>
+    单格价值 = 价值 ÷ 背包占用格子 · 携带建议按单格价值百分位与品质综合评定
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
